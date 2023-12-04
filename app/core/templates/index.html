@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Hellow world
+    <ul>
+        {% for pessoa in pessoas %}
+            <li>
+                {{ pessoa.id }} - {{ pessoa.name}} - <a href="{% url 'edit' pessoa.id %}">Editar</a> - <a href="{% url 'delete' pessoa.id %}">Deletar</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br><br>
+
+    <form action="{% url 'save' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="name">
+        <button type="submit">Salvar Nome</button>
+    </form>
+</body>
+</html>

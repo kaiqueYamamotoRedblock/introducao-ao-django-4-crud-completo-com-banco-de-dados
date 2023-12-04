@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{ pessoas.id }} - {{ pessoas.name }}
+
+    <form action="{% url 'update' pessoas.id %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" value="{{ pessoas.name }}">
+        <button type="submit">Salvar Nome</button>
+    </form>
+</body>
+</html>
